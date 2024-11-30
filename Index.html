@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color and Image Changer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Protest+Revolution&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <style>
+       
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            padding-top: 50px;
+        }
+
+        img {
+            width: 100%; 
+            max-width: 500px;  
+            height: auto;  
+            border-radius: 8px;
+            transition: all 0.5s;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+      
+        h1 {
+            font-family: 'jaro', sans-serif;
+            color: #333;
+            font-size: 36px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        #blueParagraph {
+            display: none;
+            font-family: 'Protest Revolution', sans-serif;  
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+            background-image: url(./NARUTO\ 1.gif);
+        }
+
+
+        #pinkParagraph {
+            display: none;
+            font-family: 'Sixtyfour Convergence', sans-serif;  
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+            background-image: url(./FROZEN\ 1.gif);
+            justify-content: center;
+        }
+
+        #brownParagraph {
+            display: none;
+            font-family: 'Permanent Marker', cursive; 
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+            background-image: url(./CARDO\ 1.gif);
+            justify-content: center;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <img id="image" src="./press me 1.gif" alt="Image" onerror="this.onerror=null; this.src='images/fallback.jpg';">
+        <h1>Press me pleaseeee :></h1>
+
+        <p id="blueParagraph" class="paragraph">In the movie, Naruto Uzumaki, a young ninja with dreams of becoming the strongest and most respected leader of his village, goes on an adventure with his friends. They face dangerous enemies and work together to protect their loved ones. Throughout the movie, Naruto learns important lessons about friendship, trust, and what it means to be a true hero. With his powerful ninja skills and determination, Naruto fights to save the day and prove that even someone with a difficult past can become a great leader.</p>
+        <p id="pinkParagraph" class="paragraph">In Frozen, two sisters, Elsa and Anna, live in a kingdom called Arendelle. Elsa has magical powers that allow her to control ice and snow, but she struggles to keep them a secret. One day, her powers are accidentally revealed, and she runs away to the mountains, creating a never-ending winter. Anna, determined to bring her sister back, goes on a journey with a snowman named Olaf, a reindeer named Sven, and a man named Kristoff. Together, they face challenges and discover the true power of love and family. Anna's love for Elsa helps break the curse and bring summer back to the kingdom.</p>
+        <p id="brownParagraph" class="paragraph">Ang Probinsyano is a Filipino TV show about a man named Cardo Dalisay, who is a police officer. He is brave and always fights for justice. Cardo starts his journey as a simple man from the province but gets involved in big problems like crime, corruption, and protecting his country. Throughout the show, he faces many challenges, including dangerous criminals and personal struggles. Cardo's determination to protect his family and the people he loves keeps him going, and he becomes a hero who fights for what is right. The show is full of action, drama, and heart.</p>
+
+        <br>
+        <button id="blueBtn" onclick="changeToBlue()">Blue</button>
+        <button id="pinkBtn" onclick="changeToPink()">Pink</button>
+        <button id="brownBtn" onclick="changeToBrown()">Brown</button>
+    </div>
+
+    <script>
+        function changeToBlue() {
+            document.body.style.backgroundColor = "blue";
+            document.getElementById("image").src = "./NARUTO 1.gif"; 
+            showParagraph("blueParagraph");
+            changeButtonColors("blue");
+        }
+
+        function changeToPink() {
+            document.body.style.backgroundColor = "pink";
+            document.getElementById("image").src = "./FROZEN 1.gif"; 
+            showParagraph("pinkParagraph");
+            changeButtonColors("pink");
+        }
+
+        function changeToBrown() {
+            document.body.style.backgroundColor = "brown";
+            document.getElementById("image").src = "./CARDO 1.gif";
+            showParagraph("brownParagraph");
+            changeButtonColors("brown");
+        }
+
+        function showParagraph(paragraphId) {
+            const paragraphs = document.querySelectorAll('.paragraph');
+            paragraphs.forEach(paragraph => {
+                paragraph.style.display = 'none';
+            });
+
+            document.getElementById(paragraphId).style.display = 'block';
+        }
+
+        function changeButtonColors(color) {
+            const blueBtn = document.getElementById("blueBtn");
+            const pinkBtn = document.getElementById("pinkBtn");
+            const brownBtn = document.getElementById("brownBtn");
+
+            if (color === "blue") {
+                blueBtn.style.backgroundColor = "blue";
+                pinkBtn.style.backgroundColor = "lightpink";
+                brownBtn.style.backgroundColor = "burlywood";
+            } else if (color === "pink") {
+                blueBtn.style.backgroundColor = "lightblue";
+                pinkBtn.style.backgroundColor = "pink";
+                brownBtn.style.backgroundColor = "burlywood";
+            } else if (color === "brown") {
+                blueBtn.style.backgroundColor = "lightblue";
+                pinkBtn.style.backgroundColor = "lightpink";
+                brownBtn.style.backgroundColor = "brown";
+            }
+        }
+    </script>
+
+</body>
+</html>
